@@ -1,107 +1,114 @@
-Git˵�� :�汾�����������ֲ�ʽ�汾��������
+Git说明 :版本控制软件，分布式版本控制软件
 
-һ.  ��װGit
+一.  安装Git
 
 	Use git from git bash only..
-	������ȫ��Ĭ����һ��
-	��װ���
+	其他的全部默认下一步
+	安装完成
 
 
-��.  ����binĿ¼
+二.  配置bin目录
 
-          		1.���Ȳ鿴ϵͳ�����������ã�
+          		1.首先查看系统环境变量配置：
 
-	�ҵĵ����һ����ԡ�>�߼�ϵͳ���á�>����������>ϵͳ������>
-	˫��Past��>Git��װʱ��û��Ϊ�����Զ�����binĿ¼��������Զ�������binĿ¼�������˲��裩
+	我的电脑右击属性—>高级系统设置—>环境变量—>系统变量—>
+	双击Past—>Git安装时有没有为我们自动部署bin目录（如果以自动部署了bin目录就跳过此步骤）
 	
-		2.���û�а�װ���ֶ�����һ�£�
+		2.如果没有安装则手动部署一下：
 
-	�Ҽ�Git���ļ�����λ�á���>�ҵ�binĿ¼������·������>�������ϲ鿴������Past��������>
-	����>�½���������>�Ѹղŵ�·��ճ����ȥ����>���漴��
+	右键Git打开文件所在位置——>找到bin目录并复制路径——>按照以上查看方法打开Past变量——>
+	——>新建变量——>把刚才的路径粘贴进去——>保存即可
 
-������binĿ¼��Ŀ����Ϊ��ִ��binĿ¼�µ�bash.exe��git.exe��sh.exe�ļ�����һ���ز����٣�
+（配置bin目录的目的是为了执行bin目录下的bash.exe、git.exe、sh.exe文件，这一步必不可少）
 
 
-��.  ���ñ����û���������
+三.  配置本地用户名和邮箱
 
-	�����Ҽ���Git Bash Here  �������
-		git config --global user.name	"����һ���û���"	���û����������⣬��������Ӣ�ģ�
-		git config --global user.email 	"����һ������"   	������ʹ���������䣬������ʹ��Gitע�����䣩
+	桌面右键打开Git Bash Here  输入命令：
+		git config --global user.name	"输入一个用户名"	（用户名可以随意，但必须是英文）
+		git config --global user.email 	"输入一个邮箱"   	（可以使用其他邮箱，但建议使用Git注册邮箱）
 	
-	��֤�û����������Ƿ����óɹ���
-		�ҵĵ��ԡ���>ϵͳC�̡���>�û�����>�Լ����Ե������û�����>�ҵ�.gitconfig��Ȼ���Ҽ��༭���������༭���򿪲鿴
-	��������Ѿ����ҵ�.gitconfig�ļ�˵���Ѿ����óɹ��˴򿪲鿴ֻ����֤�����Ƿ���ȷ���Ƽ��༭��Notepad++��
+	验证用户名和邮箱是否配置成功！
+		我的电脑——>系统C盘——>用户——>自己电脑的名称用户——>找到.gitconfig，然后右键编辑或者其他编辑器打开查看
+	这里如果已经能找到.gitconfig文件说明已经配置成功了打开查看只是验证配置是否正确（推荐编辑器Notepad++）
 
 
-��.  ����Զ�ֿ̲�
- ���������ѡ���Լ��һ��Git��������Ҳ����ѡ���й���վ����������ѡ���й���վGithub.com��
-	1. ��Github��վע���û�Ȼ����Github����⣨ע��ͽ��⣬���аٶȣ�������Ҫ�����زֿ��Զ�ֿ̲�Ľ�����
-	2. ���ڱ�������ssh��
-	     ��������һ��ssh�ļ�����>Ȼ���ڷ���һ�ݵ�Զ�̷�����������ķ���ʵ����������Ȼ��ճ����ȥ��
-	     �����Ҽ���Git Bash Here  �������ssh-keygen -t rsa -C Ȼ��������ϸո����õ�����ע��û�С���C�����д
-	     Ȼ��ѯ�ʣ�yes/no�����ﲻ�����룬һֱ��Enterֱ������һ�����߿������������ͱ�ʾ�ɹ��ˣ�
-	3. ��֤ssh�Ƿ�ɹ�
-		����֤�����û���������ķ���һ������>�ҵ� .ssh����ļ��С���>������������Կ
-		" id_rsa " �� " id_rsa.pub "�ļ���ǰ��Ϊ˽�е���Կ������Ϊ���е���Կ�����ߵ���Կ����Ҫ���͵��������˵���Կ
-		�� " id_rsa.pub " ȫѡ������
+四.  配置远程仓库
+ （这里可以选择自己搭建一个Git服务器，也可以选择托管网站，这里我们选择托管网站Github.com）
+	1. 在Github网站注册用户然后建立Github代码库（注册和建库，自行百度，这里主要讲本地仓库和远程仓库的交互）
+	2. 先在本地生成ssh：
+	     本地生成一个ssh文件——>然后在发送一份到远程服务器（这里的发送实际是先生成然后粘贴过去）
+	     桌面右键打开Git Bash Here  输入命令：ssh-keygen -t rsa -C 然后这里跟上刚刚配置的邮箱注意没有“”C必须大写
+	     然后询问（yes/no）这里不用输入，一直按Enter直到看到一个虚线框框起来的乱码就表示成功了！
+	3. 验证ssh是否成功
+		跟验证本地用户名和邮箱的方法一样——>找到 .ssh这个文件夹——>里面有两个密钥
+		" id_rsa " 和 " id_rsa.pub "文件，前者为私有的密钥，后者为公有的密钥，后者的密钥是需要发送到服务器端的密钥
+		打开 " id_rsa.pub " 全选并复制
 
-	4. ��Github��վ����>������Ͻ�ͷ�񡪡�>���setting����>�ڽ�������ҵ�SSH and GPG keys����>new SSH key
-	     Title�������������Ӣ�ĺ����֣�
-	     Key��ճ���ոո��Ƶ���Կ������Ҫע�����һ�еĻس�Ҫɾ������Ȼ�п��ܱ�������
-	5. ����Զ�ֿ̲�ͨѶ
-	     �������ssh -T git@github.com
-	     Ȼ��ѯ�ʣ�yes/on����������������yes	����������һ��access. ��ʾͨѶ�ɹ���
-	     ���߲鿴�ղŵ�.ssh���ļ����Ƿ�������һ��known_hosts ,��������ʾͨѶ�ɹ�����
-	���ʧ�ܣ��Ͷ��Լ��Σ���ʱ��GithubԶ�ֿ̲����粻�ȶ������߼��ոյ���Կ�Ƿ���ȷ!
-
-
-�����Ǳ��زֿ��Զ�ֿ̲�����ã��������Ǳ������͵�Զ�ֿ̲⣬�ʹ�Զ�ֿ̲�ץȡ����
-
-���زֿ⣺
-
-	1. ��������ط�newһ���ļ��С���>Ȼ�����ļ������Git Bash Here
-	2. ��ʼ��git��Ŀ���������
-	       git init ������ļ�����ʾ��.git�ļ��б�ʾ����ļ����Ѿ���git��Ŀ�ˣ�
-	       ���û�п�����û�д���ʾ�����ļ�
-	3. ����Զ����Ŀ�����аٶȣ�Ȼ���ҵ�Զ�ֿ̲��Ψһ��ʶ������ HTTPS �� Ҳ������ SSH�ģ�
-	4. ��Զ�ֿ̲�������������
-	       git remote add origin �������Զ�ֿ̲��Ψһ��ʶ �ٸ�SSH�����ӣ�git@github.com:yanqun/mygittremote.git
-	       (�� ����ǰ���ǹ̶�д�� ������������û����Ͳֿ����ȣ������ֶ����룬Զ�ֿ̲���Ը���)
+	4. 打开Github网站——>点击右上角头像——>点击setting——>在界面左边找到SSH and GPG keys——>new SSH key
+	     Title：里面随便填（最好英文和数字）
+	     Key：粘贴刚刚复制的密钥（这里要注意最后一行的回车要删除，不然有可能报错！）
+	5. 测试远程仓库通讯
+	     输入命令：ssh -T git@github.com
+	     然后询问（yes/on）？这里我们输入yes	（看到输入一句access. 表示通讯成功！
+	     或者查看刚才的.ssh的文件夹是否新增了一个known_hosts ,如果有则表示通讯成功！）
+	如果失败：就多试几次，有时候Github远程仓库网络不稳定，或者检测刚刚的密钥是否正确!
 
 
-������Ҫ���
-  1.    git config --global user.name	�����ñ����û�����
-  2.    git config --global user.email	�����ñ������䣩
-  3.    ssh-keygen -t rsa -C		���������ܵ�¼��Կ��
-  4.    ssh -T git@github.com		������Զ������ԿͨѶ��
-  5.    git remote add origin		������Զ�ֿ̲��֧��
+以上是本地仓库和远程仓库的配置，接下来是本地推送到远程仓库，和从远程仓库抓取数据
 
-����ץȡ���
-  1.    git init 		��ʼ����Ŀ		���ѵ�ǰ�ļ��г�ʼ��Ϊ.git��Ŀ�ļ��У�
-  2.    git add :		�����ļ�����>�ݴ���
-  7.    git commit��		�ݴ�������>���زֿ�		�����ط�֧��Ĭ��master��֧��
-  8.    git push:		���زֿ⡪��>Զ�ֿ̲�     	�����ط�֧����>Զ�̷�֧���ֿ���Դ��������֧��Ĭ��master��
-  9.    git pull:		Զ�ֿ̲⡪��>���زֿ�	��Զ�̷�֧����>���ط�֧����
+本地仓库：
 
+	1. 首先任意地方new一个文件夹——>然后在文件夹里打开Git Bash Here
+	2. 初始化git项目，输入命令：
+	       git init （如果文件夹显示了.git文件夹表示这个文件夹已经是git项目了）
+	       如果没有可能是没有打开显示隐藏文件
+	3. 建立远程项目（自行百度，然后找到远程仓库的唯一标识可以是 HTTPS 的 也可以是 SSH的）
+	4. 与远程仓库关联，输入命令：
+	       git remote add origin 这里跟上远程仓库的唯一标识 举个SSH的例子：git@github.com:yanqun/mygittremote.git
+	       (在 ：以前的是固定写法 ：后面是你的用户名和仓库名等，不用手动输入，远程仓库可以复制)
 
 
-��һ�η�����Ŀ������-Զ�̣���
-  1.    git add .   			(����� . ��ʾȫ���ļ���Ҳ��������ָ�����ļ���)
-  2.    git commit -m "ע������"
-  3.    git push -u origin master 		(���͵�Զ�ֿ̲�)
-��������Ҫ���󲽣�
+配置主要命令：
+  1.    git config --global user.name	（配置本地用户名）
+  2.    git config --global user.email	（配置本地邮箱）
+  3.    ssh-keygen -t rsa -C		（生成免密登录秘钥）
+  4.    ssh -T git@github.com		（测试远程免密钥通讯）
+  5.    git remote add origin		（关联远程仓库分支）
+
+推送抓取命令：
+  1.    git init 		初始化项目		（把当前文件夹初始化为.git项目文件夹）
+  2.    git add :		本地文件——>暂存区
+  7.    git commit：		暂存区——>本地仓库		（本地分支，默认master分支）
+  8.    git push:		本地仓库——>远程仓库     	（本地分支——>远程分支，仓库可以创建多个分支，默认master）
+  9.    git pull:		远程仓库——>本地仓库	（远程分支——>本地分支，）
 
 
-��һ��������Ŀ��Զ��-���أ���
-  1.    git clone ������Ҫ���ص���ĿΨһ��ʶ������ı�ʶ��ͬ
-������ֻ��Ҫһ����
+
+第一次发布项目（本地-远程）：
+  1.    git add .   			(这里的 . 表示全部文件，也可以输入指定的文件名)
+  2.    git commit -m "注释内容"
+  3.    git push -u origin master 		(推送到远程仓库)
+（发布需要三大步）
 
 
-���������ύ���ݣ�����-Զ�̣���
+第一次下载项目（远程-本地）：
+  1.    git clone 跟上需要下载的项目唯一标识与关联的标识相同
+（下载只需要一步）
+
+
+后续更新提交内容（本地-远程）：
   1.    git add .
-  2.    git commit -m "ע������"
-  3.    git push origin master 		���������ֻ��û��-u��
+  2.    git commit -m "注释内容"
+  3.    git push origin master 		（这里更新只是没有-u）
 
 
-����Զ�̸��µ����أ�Զ��-���أ���
-  1.    git pull			��ֻҪ��.git��Ŀֱ��������������Ϳ��Դ�Զ�̸��µ����أ�
+后续远程更新到本地（远程-本地）：
+  1.    git pull			（只要是.git项目直接输入这条命令就可以从远程更新到本地）
+
+
+
+
+
+
+桌面Git工具（推荐使用Sourcetree）
